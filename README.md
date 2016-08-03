@@ -1,3 +1,5 @@
+![build logo](https://travis-ci.org/andylamp/c89_parser.svg?branch=master)
+
 # C89 Parser
 
 This is a `flex` & `bison` implementation that parses successfully the (ANSI) `C` language -- it's also known as `c89`. This is a slightly edited version of the lexer and parser located [here][1] and [here][2] respectively. Original author is Jeff Lee (circa. 1985). I got it from Jutta Degener's mirror ([here][3])

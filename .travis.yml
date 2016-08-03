@@ -1,7 +1,22 @@
 language: c
 
 install:
-  sudo apt-get install build-essential flex bison
+  - sudo apt-get update -qq
+  - sudo apt-get install build-essential flex
+  - wget http://ftp.debian.org/debian/pool/main/b/bison/libbison-dev_3.0.4.dfsg-1_amd64.deb
+  - sudo dpkg -i libbison-dev_3.0.4.dfsg-1_amd64.deb
+  - wget http://ftp.debian.org/debian/pool/main/b/bison/bison_3.0.4.dfsg-1_amd64.deb
+  - sudo dpkg -i bison_3.0.4.dfsg-1_amd64.deb
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-5
+    - g++-5
+
 
 script:
-  touch .depend && make all
+  - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc
+  - touch .depend && make all
